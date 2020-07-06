@@ -1,0 +1,31 @@
+<h1>Welcome to the world of SmartPhones</h1>
+
+<!---<div class="hero">
+    <img src="assets/img/annie-spratt-Wtc9YH-g8Ag-unsplash.jpg" alt="img">
+    <section appHighlight [highlightbColor]="bcolor" [highlightColor]="color">
+        this is a section for photo description hsdhs sjdhjkah sjdh
+    </section>
+
+</div>
+-->
+
+<div>
+    <h2>Smartphone</h2>
+    <ul *ngFor="let phones of smartphones">
+        <li>{{phones.name + " "+ phones.id + phones.price}}</li>
+    </ul>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Model Brand</th>
+            <th>Price</th>
+        </tr>
+        <tr *ngFor="let phones of smartphones">
+            <td>{{phones.id}}</td>
+            <td>{{phones.name}}</td>
+            <td>{{phones.price}}</td>
+        </tr>
+    </table>
+
+
+</div>

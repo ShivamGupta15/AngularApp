@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+app-top-bar {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0%;
+}
+
+router-outlet+* {
+    padding: 0 16px;
+}
+
+.company {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0%;
+}
