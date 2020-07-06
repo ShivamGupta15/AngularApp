@@ -40,7 +40,7 @@ router.post('/enroll', (req, res) => {
 
 
         } else {
-            console.log("error: " + err.message);
+            console.log("error: " + err.sqlMessage);
 
             console.log("error:" + err.code);
             console.log("error:" + err.errno);
