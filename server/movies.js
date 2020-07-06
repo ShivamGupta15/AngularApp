@@ -27,7 +27,7 @@ mysqlConnection.connect((err) => {
 //angular post
 router.post('/enroll', (req, res) => {
     console.log(req.body);
-    res.status(200).send({ "message": "Data recieved" });
+    res.status(200).send({ "message": "Data recieved successfully" });
     name = req.body.name
     phone = req.body.mob
     email = req.body.email
