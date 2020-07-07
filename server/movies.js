@@ -44,7 +44,7 @@ router.post('/enroll', (req, res) => {
 
             console.log("error:" + err.code);
             console.log("error:" + err.errno);
-            console.log("Eorror caught")
+            console.log("Eorror caught")//hgfhgfgnf
 
 
         }
