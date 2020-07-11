@@ -1,0 +1,27 @@
+<p>newform works!</p>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<form #form="ngForm">
+    valid:{{form.form.valid}}
+    <div class="form-group">
+        <label for="firstName">FirstName</label>
+        <input ngModel required minlength="3" maxlength="10" pattern="[a-zA-Z]+" name="firstName" #ref="ngModel" (change)="log(ref)" id="firstName" type="text" class="form-control">
+        <div class="alert alert-danger" *ngIf="ref.touched && !ref.valid">
+            <div *ngIf="ref.errors.required">first name is required</div>
+            <div *ngIf="ref.errors.minlength">firstname minlength should be{{ref.errors.minlength.requiredLength}}</div>
+            <div *ngIf="ref.errors.pattern">first name pattern must be {{ref.errors.pattern.requiredPattern}} </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lasttName">LastName</label>
+        <input class="form-control" type="text" required ngModel [disabled]="ref.invalid" name="lastName" id="lastName" #ref2="ngModel" (change)="log(ref2)">
+        <div class="alert alert-danger" *ngIf="ref2.touched && !ref2.valid">invalid Format</div>
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required #ref3="ngModel" type="text" class="form-control" name="email">
+        <div class="alert alert-danger" *ngIf="ref3.touched && !ref3.valid">Invalid Email adress
+        </div>
+    </div>
+    <button [disabled]="form.form.invalid" class="btn btn-primary">Submit</button>
+</form>

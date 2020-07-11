@@ -10,6 +10,9 @@ import { HighlightDirective } from './highlight.directive';
 import { FormspageComponent } from './formspage/formspage.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NewformComponent } from './newform/newform.component';
+import { EmailCheckDirective } from './email-check.directive';
+import { EnrollmentService } from './enrollment.service';
 
 
 
@@ -25,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     HighlightDirective,
     FormspageComponent,
+    NewformComponent,
+    EmailCheckDirective,
 
  ],
   imports: [
