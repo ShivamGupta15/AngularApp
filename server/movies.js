@@ -6,6 +6,7 @@ const mysql = require('mysql');
 
 const querystring = require('querystring');
 const cors = require('cors');
+app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 app.use(cors());
 
@@ -25,14 +26,14 @@ mysqlConnection.connect((err) => {
     }
 });
 //angular post
-/*
+
 router.post('/enroll', (req, res) => {
     continsDuplicate = true;
-    console.log("bodyyyy" + req.body.mob);
+    console.log("bodyyyy" + req.body);
 
     //res.status(200).send({ "message": "Data recieved successfully" });
     name = req.body.name
-    phone = req.body.mob
+    phone = req.body.phone
     email = req.body.email
     topic = req.body.topic
     valid = false;
@@ -55,10 +56,10 @@ router.post('/enroll', (req, res) => {
 
 
         }
-    })
-})
+    });
+});
 
-*/
+
 
 router.get('/', (req, res) => {
     console.log("bodyyyy" + req.body.name + req.body.email + req.body.phone + req.body.topic)
@@ -76,14 +77,41 @@ router.get('/', (req, res) => {
 
 //check email validy by get request
 router.get('/email', (req, res) => {
-    email = req.body.email;
-    console.log("email hit!");
-    console.log(req.body.email);
-    mysqlConnection.query('Select * from `nodejs` where email=(?)', [email], (err, rows, fields) => {
+        email = req.query.email;
+        console.log("email hit!");
+        console.log(email);
+        mysqlConnection.query('Select * from `nodejs` where email=(?)', [email], (err, rows, fields) => {
+            if (!err) {
+                console.log(rows);
+                console.log(typeof(rows))
+                res.json(rows);
+                /*if (rows.length > 0) {
+                    res.send({ "AVAILABLE": true })
+
+                } else {
+                    res.send({ "AVAILABLE": false })
+                        //res.send(rows)
+                }
+                */
+
+                //console.log(fields)
+            } else {
+                //console.log(rows)
+                console.log(err)
+                    // res.send({ "AVAILABLE": false })
+            }
+        })
+    })
+    //phone check
+router.get('/phone', (req, res) => {
+    phone = req.query.phone;
+    console.log("phone hit!");
+    console.log(phone);
+    mysqlConnection.query('Select * from `nodejs` where (phone)=(?)', [phone], (err, rows, fields) => {
         if (!err) {
             console.log(rows);
             console.log(typeof(rows))
-            res.send(rows);
+            res.json(rows);
             /*if (rows.length > 0) {
                 res.send({ "AVAILABLE": true })
 
@@ -102,6 +130,7 @@ router.get('/email', (req, res) => {
     })
 })
 
+//------------------------
 router.get('/thriller', (req, res) => {
 
     res.send('This is Thriller section')

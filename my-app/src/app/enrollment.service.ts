@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-//import { User } from './user';
+import { User } from './user';
 import { map, tap } from 'rxjs/operators';
 //import { stringify } from 'querystring';
 //import { Observable } from 'rxjs/Observable';
 //import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,26 +13,26 @@ import { map, tap } from 'rxjs/operators';
 
 export class EnrollmentService {
   
- //url1 = 'http://localhost:3000/movies/enroll';
- private url2 = 'http://localhost:3000/movies/email';
+ url1 = 'http://localhost:3000/movies/enroll';
+url2 = 'http://localhost:3000/movies/email';
+url4 = 'http://localhost:3000/movies/phone';
   private url3 = 'https://jsonplaceholder.typicode.com/users';
   constructor(private http: HttpClient) { }
-  /*enroll(user: User){
+  enroll(user: User){
    return this.http.post<any>(this.url1, user);
-  }*/
-  
+  }
   /*getEnroll(): Observable<string> {
     return this._http.get(this._url);
   }
   */
  getUsers() {
-  return this.http.get<any[]>(this.url3).pipe(
+  return this.http.get<any[]>(this.url4).pipe(
     map(users => {
       const newUsers = [];
       for (let user of users) {
-        const uemail = user.email;
-        const uName = user.username;
-        newUsers.push({ email: uemail, username: uName });
+        const uemail = user.phone;
+        const uName = user.name;
+        newUsers.push({ phone: uemail, name: uName });
       }
       return newUsers;
     }),
@@ -40,7 +41,12 @@ export class EnrollmentService {
 }
 
 getUserByEmail(email: string) {
-  return this.http.get<any[]>(`${this.url3}?email=${email}`);
+
+  return this.http.get<any[]>(`${this.url2}?email=${email}`);
+}
+
+getUserByPhone(phone: number){
+  return this.http.get<any[]>(`${this.url4}?phone=${phone}`);
 }
 /*
 

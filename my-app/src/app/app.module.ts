@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NewformComponent } from './newform/newform.component';
 import { EmailCheckDirective } from './email-check.directive';
 import { EnrollmentService } from './enrollment.service';
+import { PhoneCheckDirective } from './phone-check.directive';
 
 
 
@@ -30,13 +32,15 @@ import { EnrollmentService } from './enrollment.service';
     FormspageComponent,
     NewformComponent,
     EmailCheckDirective,
+    PhoneCheckDirective,
 
  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
    ],
   providers: [],
   bootstrap: [AppComponent]
