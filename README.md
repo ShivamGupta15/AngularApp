@@ -1,2 +1,2 @@
 # AngularApp
-practiced form data and submitting data to mysql using Express nodejs
+Please go to Test branch to see project files.
