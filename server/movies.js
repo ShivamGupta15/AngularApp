@@ -11,10 +11,10 @@ app.use(bodyparser.json());
 app.use(cors());
 
 var mysqlConnection = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'root',
-    database: 'shivam'
+    host: '//enter your host of mysql',
+    user: '//enter your mysql user',
+    password: '//enter your mysql password',
+    database: '//enter your database name'
 });
 //URL PARSE
 
