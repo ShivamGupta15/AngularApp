@@ -66,11 +66,11 @@ router.get('/', (req, res) => {
 
     mysqlConnection.query('SELECT * FROM nodejs', (err, rows, fields) => {
         if (!err) {
-            // res.send(rows);
+            res.json(rows);
             //console.log(rows)
 
         } else {
-            // console.error("error" + err);
+            console.error("error" + err);
         }
     });
 });

@@ -4,7 +4,7 @@ import { EnrollmentService } from '../enrollment.service';
 import { Subscription } from 'rxjs';
 import { trigger, transition, animate, style, state } from '@angular/animations';
 import { NgForm, FormControl } from '@angular/forms';
-//import { checkServerIdentity } from 'tls';
+// import { checkServerIdentity } from 'tls';
 
 
 @Component({
@@ -28,7 +28,7 @@ export class FormspageComponent {
   myForm: FormControl;
   topics = ['Angular', 'Vue', 'Express'];
   userModel = new User(null, null, null, 'default');
-  //hide toast func
+  // hide toast func
   fade() {
     return this.toastShow = false;
   }
@@ -68,9 +68,9 @@ export class FormspageComponent {
 
   }
 
-  //ngOnInit(): void {
-  //this.userService.getUsers().subscribe(res => console.log(res));
+  // ngOnInit(): void {
+  // this.userService.getUsers().subscribe(res => console.log(res));
 
-  //}
+  // }
 
 }
