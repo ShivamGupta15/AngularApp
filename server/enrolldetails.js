@@ -3,19 +3,27 @@ const router = express.Router();
 var app = express();
 const bodyparser = require('body-parser');
 const mysql = require('mysql');
-
+var mysqlConnection = mysql.createConnection({
+    host: "shivamsg15.mysql.database.azure.com",
+    user: "shivam@shivamsg15",
+    password: "database@1997",
+    database: "shivamazure",
+    port: 3306,
+    //ssl: ""
+});
 const querystring = require('querystring');
 const cors = require('cors');
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 app.use(cors());
 
-var mysqlConnection = mysql.createConnection({
+/*var mysqlConnection = mysql.createConnection({
     host: '//enter your host of mysql',
     user: '//enter your mysql user',
     password: '//enter your mysql password',
     database: '//enter your database name'
 });
+*/
 //URL PARSE
 
 mysqlConnection.connect((err) => {
@@ -125,7 +133,7 @@ router.get('/phone', (req, res) => {
         } else {
             //console.log(rows)
             console.log(err)
-                // res.send({ "AVAILABLE": false })
+            res.send({ "AVAILABLE": false })
         }
     })
 })
