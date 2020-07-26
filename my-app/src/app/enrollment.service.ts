@@ -13,9 +13,9 @@ import { map, tap } from 'rxjs/operators';
 
 export class EnrollmentService {
 
-  url1 = 'http://localhost:3000/movies/enroll';
-  url2 = 'http://localhost:3000/movies/email';
-  url4 = 'http://localhost:3000/movies/phone';
+  url1 = 'https://menode.azurewebsites.net/enrollment/enroll';
+  url2 = 'https://menode.azurewebsites.net/enrollment/email';
+  url4 = 'https://menode.azurewebsites.net/enrollment/phone';
   private url3 = 'https://jsonplaceholder.typicode.com/users';
   constructor(private http: HttpClient) { }
   enroll(user: User) {
